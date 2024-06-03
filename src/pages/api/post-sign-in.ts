@@ -43,7 +43,7 @@ export default async function handler(
 
         await session.save();
 
-        console.log('checked', response)
+        console.log('license', license)
     } catch (e) {
         console.log('SIGN IN ERROR');
         console.log(e);

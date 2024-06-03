@@ -33,7 +33,7 @@ export default async function handler(
                 'version': 'v2',
             }
         });
-        console.log('created', license)
+        console.log('created', await license.json())
     } catch (e) {
         console.log('SIGN UP ERROR');
         console.log(e);
