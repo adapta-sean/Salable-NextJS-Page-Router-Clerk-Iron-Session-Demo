@@ -36,7 +36,7 @@ export default function Home() {
           <>
             <h2>Capabilities</h2>
             <ul>
-              {session.capabilities.map(capability => <li>{capability}</li>)}
+              {session.capabilities.map(capability => <li key={capability}>{capability}</li>)}
             </ul>
           </>
       ) : null}
