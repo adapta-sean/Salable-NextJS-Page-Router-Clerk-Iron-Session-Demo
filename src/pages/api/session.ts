@@ -24,7 +24,7 @@ export default async function handler(
 
     const {userId} = getAuth(req);
 
-    if(!userId) {
+    if (!userId) {
         session.destroy();
         return res.status(401).end();
     }

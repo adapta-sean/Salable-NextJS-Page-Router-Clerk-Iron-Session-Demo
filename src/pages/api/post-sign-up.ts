@@ -18,7 +18,7 @@ export default async function handler(
         error: 'Internal Server Error: Missing salable plan UUID'
     });
 
-    const { userId } = getAuth(req);
+    const {userId} = getAuth(req);
 
     try {
         const license = await fetch('https://api.salable.app/licenses', {

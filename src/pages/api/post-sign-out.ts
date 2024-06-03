@@ -1,7 +1,6 @@
 import {getIronSession} from 'iron-session';
 import type {NextApiRequest, NextApiResponse} from "next";
 import {SALABLE_SESSION} from "@/constants";
-import {getAuth} from "@clerk/nextjs/server";
 
 export default async function handler(
     req: NextApiRequest,
