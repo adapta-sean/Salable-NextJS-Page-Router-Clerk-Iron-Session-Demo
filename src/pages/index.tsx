@@ -1,11 +1,7 @@
-import {Inter} from "next/font/google";
 import {useEffect, useState} from "react";
 import {useUser} from "@clerk/nextjs";
 
-const inter = Inter({subsets: ["latin"]});
-
 export default function Home() {
-
     const [session, setSession] = useState<{ capabilities: string[] } | null>(null);
     const {isSignedIn} = useUser();
 
@@ -28,10 +24,8 @@ export default function Home() {
     }, [isSignedIn]);
 
     return (
-        <main
-            className={`flex min-h-screen flex-col py-6 px-24 ${inter.className}`}
-        >
-            <h1 className='text-2xl mb-4'>Salable NextJS Page Router + Clerk + Iron Session Demo</h1>
+        <main className={'flex min-h-screen flex-col py-6 px-24'}>
+            <h1 className='text-xl mb-4'>Using State and Fetch</h1>
             {session ? (
                 <>
                     <h2 className='text-xl'>Capabilities</h2>

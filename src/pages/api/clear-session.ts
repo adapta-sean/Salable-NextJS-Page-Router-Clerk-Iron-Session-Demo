@@ -19,5 +19,5 @@ export default async function handler(
 
     session.destroy();
 
-    return res.redirect(303, '/');
+    res.status(204).end();
 }

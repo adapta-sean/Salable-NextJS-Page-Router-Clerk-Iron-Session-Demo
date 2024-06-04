@@ -1,6 +1,5 @@
 import type {NextApiRequest, NextApiResponse} from "next";
 import {getAuth} from "@clerk/nextjs/server";
-import fetch from 'node-fetch';
 import {getIronSession} from "iron-session";
 import {SalableSessionData} from "@/pages/api/session";
 import {SALABLE_SESSION} from "@/constants";
@@ -33,7 +32,15 @@ export default async function handler(
                     'version': 'v2'
                 }
             });
+
+        // Note: 204 empty response check successful, no licenses found for the grantee/s
+        if (response.status === 204) {
+            res.redirect(303, '/');
+            return;
+        }
+
         const license = await response.json() as License;
+
         const session = await getIronSession<SalableSessionData>(req, res, {
             password: process.env.SALABLE_SESSION_PASSWORD,
             cookieName: SALABLE_SESSION
