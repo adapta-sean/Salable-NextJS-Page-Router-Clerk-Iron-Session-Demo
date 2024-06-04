@@ -32,11 +32,9 @@ export default async function handler(
                 'version': 'v2',
             }
         });
-        console.log('created', await license.json())
     } catch (e) {
-        console.log('SIGN UP ERROR');
         console.log(e);
-        res.redirect(303, '/?license-generation-failed');
+        res.redirect(303, '/?license-generation-failed'); // Todo: figure out what to do in this case
         return;
     }
 

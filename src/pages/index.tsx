@@ -13,7 +13,6 @@ export default function Home() {
         fetch("/api/session")
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 if (data.capabilities) {
                     setSession({capabilities: data.capabilities})
                 } else {

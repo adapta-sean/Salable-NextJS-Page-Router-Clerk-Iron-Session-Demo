@@ -13,8 +13,6 @@ export default async function handler(
 ) {
     if (req.method !== "GET") return res.status(405).end();
 
-    console.log('SESSION GET');
-
     if (!process.env.SALABLE_SESSION_PASSWORD) return res.status(500).json({
         error: 'Internal Server Error: Missing session password'
     });
@@ -27,16 +25,12 @@ export default async function handler(
 
     const {userId} = getAuth(req);
 
-    console.log('USER', userId);
-
     if (!userId) {
         session.destroy();
         return res.status(200).json(null);
     }
 
     if (!session.capabilities) res.status(200).json(null);
-
-    console.log('HAS SESSION', session.capabilities);
 
     return res.status(200).json({capabilities: session.capabilities});
 }

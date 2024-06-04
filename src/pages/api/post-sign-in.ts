@@ -49,12 +49,9 @@ export default async function handler(
         session.capabilities = license.capabilities;
 
         await session.save();
-
-        console.log('license', license)
     } catch (e) {
-        console.log('SIGN IN ERROR');
         console.log(e);
-        res.redirect(303, '/?license-check-failed');
+        res.redirect(303, '/?license-check-failed'); // Todo: figure out what to do in this case
         return;
     }
 
