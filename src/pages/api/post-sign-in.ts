@@ -43,7 +43,8 @@ export default async function handler(
 
         const session = await getIronSession<SalableSessionData>(req, res, {
             password: process.env.SALABLE_SESSION_PASSWORD,
-            cookieName: SALABLE_SESSION
+            cookieName: SALABLE_SESSION,
+            ttl: 0
         });
 
         session.capabilities = license.capabilities;
